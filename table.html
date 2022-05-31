@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins";
+      box-sizing: border-box;
+      font-weight: 600;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #3c2846;
+    }
+
+    .container {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      height: 50ch;
+      width: 50ch;
+    }
+
+    input {
+      border: 0;
+      outline: 0;
+      color: #a173e8;
+      background-color: #ffffff1f;
+      transform: scale(1.4) translateY(-2ch);
+      padding: 1ch;
+      font-size: 2ch;
+      text-align: center;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .tableform {
+      position: relative;
+      height: 30ch;
+      width: 30ch;
+      color: #a173e8;
+      background-color: #ffffff1f;
+      user-select: none;
+      display: grid;
+      place-items: center;
+      transform: scale(1.4);
+    }
+
+    .all {
+      position: relative;
+      height: 3ch;
+      width: 15ch;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tbl {
+      max-width: 8ch;
+      min-width: 8ch;
+      right: 12ch;
+      position: absolute;
+      text-align: center;
+    }
+
+    .equal {
+      max-width: 2ch;
+      min-width: 2ch;
+      text-align: center;
+    }
+
+    .result {
+      min-width: 8ch;
+      max-width: 8ch;
+      left: 12ch;
+      position: absolute;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <input type="number">
+    <div class="tableform">
+
+    </div>
+  </div>
+</body>
+<script>
+  var tableform = document.querySelector(".tableform");
+  var input = document.querySelector("input");
+  window.onkeyup = e => {
+    if (e.keyCode === 13 || e.keyCode === 32)
+    {
+      table();
+      input.value = "";
+    }
+  };
+  window.onkeydown = e => {
+    if (e.keyCode === 13 || e.keyCode === 32)
+    {
+      tableform.innerHTML = "";
+    }
+  };
+  function table () {
+    inpvl = input.value;
+    if (inpvl == "")
+    {
+      tableform.innerHTML = "Please enter a number";
+    }
+    else
+    {
+      for (i = 1; i <= 10; i++)
+      {
+        tableform.innerHTML += '<div class="all">' + '<div  class="tbl">' + inpvl + ' x ' + i + '</div>' + '<div class="equal">' + '  =  ' + '</div>' + '<div class="result">' + inpvl * i + '</div>' + '</div>';
+      }
+    }
+  }
+</script>
+
+</html>
